@@ -3,17 +3,17 @@ agent any
 
 ```
 environment {
-    GIT_REPO        = "https://github.com/YOUR_USERNAME/restaurant-project.git"
+    GIT_REPO        = "https://github.com/Vijayasaka-112/restaurant-project.git"
     GIT_BRANCH      = "main"
 
     DOCKERHUB_USER  = "vijaya123qw"
     IMAGE_NAME      = "restaurant-app"
     IMAGE_TAG       = "${BUILD_NUMBER}"
 
-    DOCKER_CREDS    = "dockercred"
+    DOCKER_CREDS    = "dockerhub-cred"
 
     CONTAINER_NAME  = "restaurant-container"
-    HOST_PORT       = "9676"
+    HOST_PORT       = "8087"
     CONTAINER_PORT  = "80"
 }
 
@@ -21,13 +21,7 @@ stages {
 
     stage('Checkout Code') {
         steps {
-            checkout scmGit(
-                branches: [[name: '*/main']],
-                userRemoteConfigs: [[
-                    credentialsId: 'githubcred',
-                    url: "${GIT_REPO}"
-                ]]
-            )
+           checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'gitcred', url: 'https://github.com/Vijayasaka-112/restaurant-project.git']])
         }
     }
 
