@@ -14,7 +14,7 @@ environment {
 
     CONTAINER_NAME  = "restaurant-container"
     HOST_PORT       = "8087"
-    CONTAINER_PORT  = "80"
+    CONTAINER_PORT  = "8080"
 }
 
 stages {
